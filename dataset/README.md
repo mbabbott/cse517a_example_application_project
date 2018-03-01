@@ -9,4 +9,6 @@ It is good practice to not upload datasets to your repositories both because the
 Source
 ------
 
-In a README describe where you got the dataset as well as where to download the files needed and how you set up the folders in the Dataset folder so the TAs can easily run your code if needed.
+The dataset is a compilation of MIDI sequences of songs composed by J.S. Bach. They were downloaded from http://jsbach.net/midi/. We manually looked up the key of each piece using https://en.wikipedia.org/wiki/List_of_compositions_by_Johann_Sebastian_Bach, and wrote those keys into a file ordered by BWV number (https://en.wikipedia.org/wiki/Bach-Werke-Verzeichnis). The files are all in the Dataset folder ordered by filename. Because of the way the files are named, this also orders them by BWV number.
+
+The data contains at least one song of every musical key. We read the MIDI files as collections of musical notes, bag-of-words style. The 'words' are musical notes, and their frequency is the duration over which they appear in the piece.
