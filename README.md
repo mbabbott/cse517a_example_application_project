@@ -3,7 +3,7 @@ Machine Learning (cse517a) Application Project
 Music Key Identification
 ------------------------
 
-Code for identifying the key of musical pieces given the duration of each note in that piece
+Code for identifying whether a musical piece is in the key of G Major or the key of D Major
 
 Folder Setup
 ------------
