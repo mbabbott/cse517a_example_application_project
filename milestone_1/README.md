@@ -12,6 +12,7 @@ Each milestone folder should include the following
 They should not include
 
 * Datasets
+	(we are including the csvs because they're small and they're our own custom aggregated data, if this is a bad idea, we can remove them)
 * Large packages
 
 README
