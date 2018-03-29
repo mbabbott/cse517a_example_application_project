@@ -67,26 +67,26 @@ def runCVonGP(numFolds, X, y, k_CV):
 
 totalErr1 = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]))
 print("\nAverage Percent Error:", round(totalErr1, 2), "%")
-print("Kernel: RBF(1)\n")
-
-totalErr4 = runCVonGP(10, X_full, y_full, Matern(length_scale=1))
-print("\nAverage Percent Error:", round(totalErr4, 2), "%")
-print("Kernel: Matern(1)\n")
+print("Kernel: RBF(length_scale=1)\n")
 
 totalErr2 = runCVonGP(10, X_full, y_full, 1.0 * RBF([10.0]))
 print("\nAverage Percent Error:", round(totalErr2, 2), "%")
-print("Kernel: RBF(10)\n")
-
-totalErr5 = runCVonGP(10, X_full, y_full, Matern(length_scale=10))
-print("\nAverage Percent Error:", round(totalErr5, 2), "%")
-print("Kernel: Matern(10)\n")
+print("Kernel: RBF(length_scale=10)\n")
 
 totalErr3 = runCVonGP(10, X_full, y_full, 1.0 * RBF([100.0]))
 print("\nAverage Percent Error:", round(totalErr3, 2), "%")
-print("Kernel: RBF(100)\n")
+print("Kernel: RBF(length_scale=100)\n")
 
-totalErr6 = runCVonGP(10, X_full, y_full, Matern(length_scale=100))
+totalErr4 = runCVonGP(10, X_full, y_full, Matern(nu=0.5))
+print("\nAverage Percent Error:", round(totalErr4, 2), "%")
+print("Kernel: Matern(smoothing=0.5)\n")
+
+totalErr5 = runCVonGP(10, X_full, y_full, Matern(nu=1.5))
+print("\nAverage Percent Error:", round(totalErr5, 2), "%")
+print("Kernel: Matern(smoothing=1.5)\n")
+
+totalErr6 = runCVonGP(10, X_full, y_full, Matern(nu=2.5))
 print("\nAverage Percent Error:", round(totalErr6, 2), "%")
-print("Kernel: Matern(100)\n")
+print("Kernel: Matern(smoothing=2.5)\n")
     
     
