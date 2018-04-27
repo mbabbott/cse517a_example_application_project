@@ -11,7 +11,7 @@ from sklearn.manifold import TSNE
 
 def getPCAreduce(X):
     
-    pca = PCA(n_components = 9)
+    pca = PCA(n_components = 'mle')
     pca.fit(X.T)
     return pca.transform(X.T)
     
@@ -47,11 +47,13 @@ X_2D = manifold.fit_transform(np.copy(X_full.T))
 
 X_PCA = getPCAreduce(np.copy(X_full))
 
+print("with PCA")
+print(X_PCA.shape[1], "dimensions")
 
 #X_PCA_2D = TSNE(n_components=2).fit_transform(np.copy(X_PCA))
 X_PCA_2D = manifold.fit_transform(np.copy(X_PCA))
 
-print("\n\nwith PCA")
+
 plt.figure(1)
 for i in range(0, X_2D.shape[0]):
     label= y_full[i]

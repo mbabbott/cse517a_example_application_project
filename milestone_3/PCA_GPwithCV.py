@@ -35,7 +35,7 @@ def getPCAreduce(X_trainPCA, X_testPCA, svd_bool):
         pca = PCA(n_components = 'mle', svd_solver='full')
         pca.fit(X_trainPCA.T)
     else:
-        pca = PCA(n_components = 9)
+        pca = PCA(n_components = 8)
         pca.fit(X_trainPCA.T)
         
     newTrain =  pca.transform(X_trainPCA.T)
@@ -65,13 +65,14 @@ def runCVonGP(numFolds, X, y, k_CV, PCA_bool):
         
         if(PCA_bool == 1):
             [X_train, X_test] = getPCAreduce(X_train, X_test, 0)
-            print(X_train.shape)
+            print(X_train.shape[1], "dimensions")
         elif(PCA_bool == 2):
             [X_train, X_test] = getPCAreduce(X_train, X_test, 1)
-            print(X_train.shape)
+            print(X_train.shape[1], "dimensions")
         else:
             X_train = X_train.T
             X_test = X_test.T
+            print(X_train.shape[1], "dimensions")
 
         
         #train GP classifier and get predictions of test set
@@ -96,14 +97,14 @@ def runCVonGP(numFolds, X, y, k_CV, PCA_bool):
 
 totalErrNoPCA = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]), 0)
 print("without PCA")
-print("Average Percent Error:", round(totalErrNoPCA, 4), "%")
+print("Average Percent Error:", round(totalErrNoPCA, 4), "%\n")
 
 totalErrWithPCAandSVD = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]), 1)
-print("\nwith auto PCA/SVD")
-print("Average Percent Error:", round(totalErrWithPCAandSVD, 4), "%")
+print("with auto PCA/SVD")
+print("Average Percent Error:", round(totalErrWithPCAandSVD, 4), "%\n")
 
 totalErrWithPCA = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]), 2)
-print("\nwith PCA/SVD forced to 9")
+print("with PCA/SVD forced to 8")
 print("Average Percent Error:", round(totalErrWithPCA, 4), "%")
 
 
