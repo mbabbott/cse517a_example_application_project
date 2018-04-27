@@ -1,19 +1,6 @@
 Milestone 2
 ===========
 
-Folders
--------
-
-Each milestone folder should include the following
-
-* All code you wrote/used
-* A README file
-
-They should not include
-
-* Datasets
-* Large packages
-
 README
 ------
 
