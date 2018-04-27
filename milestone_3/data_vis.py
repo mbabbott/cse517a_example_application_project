@@ -35,18 +35,24 @@ fullDataset = np.transpose(fullDataset)
 X_full = fullDataset[:12,:]
 y_full = fullDataset[12, :]
 
-X_2D = TSNE(n_components=2).fit_transform(np.copy(X_full.T))
+manifold = TSNE(n_components=2)
+X_2D = manifold.fit_transform(np.copy(X_full.T))
 
-plt.figure(0)
-for i in range(0, X_2D.shape[0]):
-    label= y_full[i]
-    plot(X_2D[i][0], X_2D[i][1], label)
-plt.show()
+#print("without PCA")
+#plt.figure(0)
+#for i in range(0, X_2D.shape[0]):
+#    label= y_full[i]
+#    plot(X_2D[i][0], X_2D[i][1], label)
+#plt.show()
 
 X_PCA = getPCAreduce(np.copy(X_full))
-X_PCA_2D = TSNE(n_components=2).fit_transform(np.copy(X_PCA))
 
-plt.figure(0)
+
+#X_PCA_2D = TSNE(n_components=2).fit_transform(np.copy(X_PCA))
+X_PCA_2D = manifold.fit_transform(np.copy(X_PCA))
+
+print("\n\nwith PCA")
+plt.figure(1)
 for i in range(0, X_2D.shape[0]):
     label= y_full[i]
     plot(X_PCA_2D[i][0], X_PCA_2D[i][1], label)

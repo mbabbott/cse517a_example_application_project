@@ -99,11 +99,11 @@ print("without PCA")
 print("Average Percent Error:", round(totalErrNoPCA, 4), "%")
 
 totalErrWithPCAandSVD = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]), 1)
-print("\nwith auto PCA & SVD")
+print("\nwith auto PCA/SVD")
 print("Average Percent Error:", round(totalErrWithPCAandSVD, 4), "%")
 
 totalErrWithPCA = runCVonGP(10, X_full, y_full, 1.0 * RBF([1.0]), 2)
-print("\nwith PCA forced to 9")
+print("\nwith PCA/SVD forced to 9")
 print("Average Percent Error:", round(totalErrWithPCA, 4), "%")
 
 
